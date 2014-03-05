@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Base16 Monokai - Gnome Terminal color scheme install script
-# Wimer Hazenberg (http://www.monokai.nl)
+# Base16 Atelier Heath - Gnome Terminal color scheme install script
+# Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/heath)
 
-[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="Base 16 Monokai Dark"
-[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="base-16-monokai-dark"
+[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="Base 16 Atelier Heath Light"
+[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="base-16-atelierheath-light"
 [[ -z "$DCONF" ]] && DCONF=dconf
 [[ -z "$UUIDGEN" ]] && UUIDGEN=uuidgen
 
@@ -59,10 +59,11 @@ if which "$DCONF" > /dev/null 2>&1; then
 
 		# update profile values with theme options
 		dset visible-name "'$PROFILE_NAME'"
-        dset palette "['#272822', '#f92672', '#a6e22e', '#f4bf75', '#66d9ef', '#ae81ff', '#a1efe4', '#f8f8f2', '#75715e', '#f92672', '#a6e22e', '#f4bf75', '#66d9ef', '#ae81ff', '#a1efe4', '#f9f8f5']"
-		dset background-color "'#272822'"
-		dset foreground-color "'#f8f8f2'"
-		dset bold-color "'#f8f8f2'"
+        dset palette "'#1b181b:#ca402b:#379a37:#bb8a35:#516aec:#7b59c0:#159393:#ab9bab:#776977:#ca402b:#379a37:#bb8a35:#516aec:#7b59c0:#159393:#f7f3f7'"
+        dset palette "'#f7f3f7:#ca402b:#379a37:#bb8a35:#516aec:#7b59c0:#159393:#ab9bab:#776977:#ca402b:#379a37:#bb8a35:#516aec:#7b59c0:#159393:#1b181b'"
+		dset background-color "'#f7f3f7'"
+		dset foreground-color "'#695d69'"
+		dset bold-color "'#695d69'"
 		dset bold-color-same-as-fg "true"
 		dset use-theme-colors "false"
 		dset use-theme-background "false"
@@ -105,10 +106,10 @@ glist_append() {
 glist_append string /apps/gnome-terminal/global/profile_list "$PROFILE_SLUG"
 
 gset string visible_name "$PROFILE_NAME"
-gset string palette "#272822:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#a1efe4:#f8f8f2:#75715e:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#a1efe4:#f9f8f5"
-gset string background_color "#272822"
-gset string foreground_color "#f8f8f2"
-gset string bold_color "#f8f8f2"
+gset string palette "#f7f3f7:#ca402b:#379a37:#bb8a35:#516aec:#7b59c0:#159393:#ab9bab:#776977:#ca402b:#379a37:#bb8a35:#516aec:#7b59c0:#159393:#1b181b"
+gset string background_color "#f7f3f7"
+gset string foreground_color "#695d69"
+gset string bold_color "#695d69"
 gset bool   bold_color_same_as_fg "true"
 gset bool   use_theme_colors "false"
 gset bool   use_theme_background "false"

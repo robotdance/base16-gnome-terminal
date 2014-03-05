@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Base16 Monokai - Gnome Terminal color scheme install script
-# Wimer Hazenberg (http://www.monokai.nl)
+# Base16 Marrakesh - Gnome Terminal color scheme install script
+# Alexandre Gavioli (http://github.com/Alexx2/)
 
-[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="Base 16 Monokai Dark"
-[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="base-16-monokai-dark"
+[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="Base 16 Marrakesh Light"
+[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="base-16-marrakesh-light"
 [[ -z "$DCONF" ]] && DCONF=dconf
 [[ -z "$UUIDGEN" ]] && UUIDGEN=uuidgen
 
@@ -59,10 +59,11 @@ if which "$DCONF" > /dev/null 2>&1; then
 
 		# update profile values with theme options
 		dset visible-name "'$PROFILE_NAME'"
-        dset palette "['#272822', '#f92672', '#a6e22e', '#f4bf75', '#66d9ef', '#ae81ff', '#a1efe4', '#f8f8f2', '#75715e', '#f92672', '#a6e22e', '#f4bf75', '#66d9ef', '#ae81ff', '#a1efe4', '#f9f8f5']"
-		dset background-color "'#272822'"
-		dset foreground-color "'#f8f8f2'"
-		dset bold-color "'#f8f8f2'"
+        dset palette "'#201602:#c35359:#18974e:#a88339:#477ca1:#8868b3:#75a738:#948e48:#6c6823:#c35359:#18974e:#a88339:#477ca1:#8868b3:#75a738:#faf0a5'"
+        dset palette "'#faf0a5:#c35359:#18974e:#a88339:#477ca1:#8868b3:#75a738:#948e48:#6c6823:#c35359:#18974e:#a88339:#477ca1:#8868b3:#75a738:#201602'"
+		dset background-color "'#faf0a5'"
+		dset foreground-color "'#5f5b17'"
+		dset bold-color "'#5f5b17'"
 		dset bold-color-same-as-fg "true"
 		dset use-theme-colors "false"
 		dset use-theme-background "false"
@@ -105,10 +106,10 @@ glist_append() {
 glist_append string /apps/gnome-terminal/global/profile_list "$PROFILE_SLUG"
 
 gset string visible_name "$PROFILE_NAME"
-gset string palette "#272822:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#a1efe4:#f8f8f2:#75715e:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#a1efe4:#f9f8f5"
-gset string background_color "#272822"
-gset string foreground_color "#f8f8f2"
-gset string bold_color "#f8f8f2"
+gset string palette "#faf0a5:#c35359:#18974e:#a88339:#477ca1:#8868b3:#75a738:#948e48:#6c6823:#c35359:#18974e:#a88339:#477ca1:#8868b3:#75a738:#201602"
+gset string background_color "#faf0a5"
+gset string foreground_color "#5f5b17"
+gset string bold_color "#5f5b17"
 gset bool   bold_color_same_as_fg "true"
 gset bool   use_theme_colors "false"
 gset bool   use_theme_background "false"

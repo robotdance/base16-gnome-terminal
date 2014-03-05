@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Base16 Monokai - Gnome Terminal color scheme install script
-# Wimer Hazenberg (http://www.monokai.nl)
+# Base16 3024 - Gnome Terminal color scheme install script
+# Jan T. Sott (http://github.com/idleberg)
 
-[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="Base 16 Monokai Dark"
-[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="base-16-monokai-dark"
+[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="Base 16 3024 Dark"
+[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="base-16-3024-dark"
 [[ -z "$DCONF" ]] && DCONF=dconf
 [[ -z "$UUIDGEN" ]] && UUIDGEN=uuidgen
 
@@ -59,10 +59,10 @@ if which "$DCONF" > /dev/null 2>&1; then
 
 		# update profile values with theme options
 		dset visible-name "'$PROFILE_NAME'"
-        dset palette "['#272822', '#f92672', '#a6e22e', '#f4bf75', '#66d9ef', '#ae81ff', '#a1efe4', '#f8f8f2', '#75715e', '#f92672', '#a6e22e', '#f4bf75', '#66d9ef', '#ae81ff', '#a1efe4', '#f9f8f5']"
-		dset background-color "'#272822'"
-		dset foreground-color "'#f8f8f2'"
-		dset bold-color "'#f8f8f2'"
+        dset palette "['#090300', '#db2d20', '#01a252', '#fded02', '#01a0e4', '#a16a94', '#b5e4f4', '#a5a2a2', '#5c5855', '#db2d20', '#01a252', '#fded02', '#01a0e4', '#a16a94', '#b5e4f4', '#f7f7f7']"
+		dset background-color "'#090300'"
+		dset foreground-color "'#a5a2a2'"
+		dset bold-color "'#a5a2a2'"
 		dset bold-color-same-as-fg "true"
 		dset use-theme-colors "false"
 		dset use-theme-background "false"
@@ -105,10 +105,10 @@ glist_append() {
 glist_append string /apps/gnome-terminal/global/profile_list "$PROFILE_SLUG"
 
 gset string visible_name "$PROFILE_NAME"
-gset string palette "#272822:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#a1efe4:#f8f8f2:#75715e:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#a1efe4:#f9f8f5"
-gset string background_color "#272822"
-gset string foreground_color "#f8f8f2"
-gset string bold_color "#f8f8f2"
+gset string palette "#090300:#db2d20:#01a252:#fded02:#01a0e4:#a16a94:#b5e4f4:#a5a2a2:#5c5855:#db2d20:#01a252:#fded02:#01a0e4:#a16a94:#b5e4f4:#f7f7f7"
+gset string background_color "#090300"
+gset string foreground_color "#a5a2a2"
+gset string bold_color "#a5a2a2"
 gset bool   bold_color_same_as_fg "true"
 gset bool   use_theme_colors "false"
 gset bool   use_theme_background "false"

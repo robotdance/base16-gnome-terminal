@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Base16 Monokai - Gnome Terminal color scheme install script
-# Wimer Hazenberg (http://www.monokai.nl)
+# Base16 Ocean - Gnome Terminal color scheme install script
+# Chris Kempson (http://chriskempson.com)
 
-[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="Base 16 Monokai Dark"
-[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="base-16-monokai-dark"
+[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="Base 16 Ocean Light"
+[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="base-16-ocean-light"
 [[ -z "$DCONF" ]] && DCONF=dconf
 [[ -z "$UUIDGEN" ]] && UUIDGEN=uuidgen
 
@@ -59,10 +59,11 @@ if which "$DCONF" > /dev/null 2>&1; then
 
 		# update profile values with theme options
 		dset visible-name "'$PROFILE_NAME'"
-        dset palette "['#272822', '#f92672', '#a6e22e', '#f4bf75', '#66d9ef', '#ae81ff', '#a1efe4', '#f8f8f2', '#75715e', '#f92672', '#a6e22e', '#f4bf75', '#66d9ef', '#ae81ff', '#a1efe4', '#f9f8f5']"
-		dset background-color "'#272822'"
-		dset foreground-color "'#f8f8f2'"
-		dset bold-color "'#f8f8f2'"
+        dset palette "'#2b303b:#bf616a:#a3be8c:#ebcb8b:#8fa1b3:#b48ead:#96b5b4:#c0c5ce:#65737e:#bf616a:#a3be8c:#ebcb8b:#8fa1b3:#b48ead:#96b5b4:#eff1f5'"
+        dset palette "'#eff1f5:#bf616a:#a3be8c:#ebcb8b:#8fa1b3:#b48ead:#96b5b4:#c0c5ce:#65737e:#bf616a:#a3be8c:#ebcb8b:#8fa1b3:#b48ead:#96b5b4:#2b303b'"
+		dset background-color "'#eff1f5'"
+		dset foreground-color "'#4f5b66'"
+		dset bold-color "'#4f5b66'"
 		dset bold-color-same-as-fg "true"
 		dset use-theme-colors "false"
 		dset use-theme-background "false"
@@ -105,10 +106,10 @@ glist_append() {
 glist_append string /apps/gnome-terminal/global/profile_list "$PROFILE_SLUG"
 
 gset string visible_name "$PROFILE_NAME"
-gset string palette "#272822:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#a1efe4:#f8f8f2:#75715e:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#a1efe4:#f9f8f5"
-gset string background_color "#272822"
-gset string foreground_color "#f8f8f2"
-gset string bold_color "#f8f8f2"
+gset string palette "#eff1f5:#bf616a:#a3be8c:#ebcb8b:#8fa1b3:#b48ead:#96b5b4:#c0c5ce:#65737e:#bf616a:#a3be8c:#ebcb8b:#8fa1b3:#b48ead:#96b5b4:#2b303b"
+gset string background_color "#eff1f5"
+gset string foreground_color "#4f5b66"
+gset string bold_color "#4f5b66"
 gset bool   bold_color_same_as_fg "true"
 gset bool   use_theme_colors "false"
 gset bool   use_theme_background "false"

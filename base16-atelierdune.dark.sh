@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Base16 Monokai - Gnome Terminal color scheme install script
-# Wimer Hazenberg (http://www.monokai.nl)
+# Base16 Atelier Dune - Gnome Terminal color scheme install script
+# Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/dune)
 
-[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="Base 16 Monokai Dark"
-[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="base-16-monokai-dark"
+[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="Base 16 Atelier Dune Dark"
+[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="base-16-atelierdune-dark"
 [[ -z "$DCONF" ]] && DCONF=dconf
 [[ -z "$UUIDGEN" ]] && UUIDGEN=uuidgen
 
@@ -59,10 +59,10 @@ if which "$DCONF" > /dev/null 2>&1; then
 
 		# update profile values with theme options
 		dset visible-name "'$PROFILE_NAME'"
-        dset palette "['#272822', '#f92672', '#a6e22e', '#f4bf75', '#66d9ef', '#ae81ff', '#a1efe4', '#f8f8f2', '#75715e', '#f92672', '#a6e22e', '#f4bf75', '#66d9ef', '#ae81ff', '#a1efe4', '#f9f8f5']"
-		dset background-color "'#272822'"
-		dset foreground-color "'#f8f8f2'"
-		dset bold-color "'#f8f8f2'"
+        dset palette "['#20201d', '#d73737', '#60ac39', '#cfb017', '#6684e1', '#b854d4', '#1fad83', '#a6a28c', '#7d7a68', '#d73737', '#60ac39', '#cfb017', '#6684e1', '#b854d4', '#1fad83', '#fefbec']"
+		dset background-color "'#20201d'"
+		dset foreground-color "'#a6a28c'"
+		dset bold-color "'#a6a28c'"
 		dset bold-color-same-as-fg "true"
 		dset use-theme-colors "false"
 		dset use-theme-background "false"
@@ -105,10 +105,10 @@ glist_append() {
 glist_append string /apps/gnome-terminal/global/profile_list "$PROFILE_SLUG"
 
 gset string visible_name "$PROFILE_NAME"
-gset string palette "#272822:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#a1efe4:#f8f8f2:#75715e:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#a1efe4:#f9f8f5"
-gset string background_color "#272822"
-gset string foreground_color "#f8f8f2"
-gset string bold_color "#f8f8f2"
+gset string palette "#20201d:#d73737:#60ac39:#cfb017:#6684e1:#b854d4:#1fad83:#a6a28c:#7d7a68:#d73737:#60ac39:#cfb017:#6684e1:#b854d4:#1fad83:#fefbec"
+gset string background_color "#20201d"
+gset string foreground_color "#a6a28c"
+gset string bold_color "#a6a28c"
 gset bool   bold_color_same_as_fg "true"
 gset bool   use_theme_colors "false"
 gset bool   use_theme_background "false"

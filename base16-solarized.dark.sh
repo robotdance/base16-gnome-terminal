@@ -2,8 +2,76 @@
 # Base16 Solarized - Gnome Terminal color scheme install script
 # Ethan Schoonover (http://ethanschoonover.com/solarized)
 
-[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="Base 16 Solarized"
-[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="base-16-solarized"
+[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="Base 16 Solarized Dark"
+[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="base-16-solarized-dark"
+[[ -z "$DCONF" ]] && DCONF=dconf
+[[ -z "$UUIDGEN" ]] && UUIDGEN=uuidgen
+
+dset() {
+  local key="$1"; shift
+  local val="$1"; shift
+
+  if [[ "$type" == "string" ]]; then
+	  val="'$val'"
+  fi
+
+  "$DCONF" write "$PROFILE_KEY/$key" "$val"
+}
+
+# because dconf still doesn't have "append"
+dlist_append() {
+  local key="$1"; shift
+  local val="$1"; shift
+
+  local entries="$(
+    {
+      "$DCONF" read "$key" | tr -d '[]' | tr , "\n" | fgrep -v "$val"
+      echo "'$val'"
+    } | head -c-1 | tr "\n" ,
+  )"
+
+  "$DCONF" write "$key" "[$entries]"
+}
+
+# Newest versions of gnome-terminal use dconf
+if which "$DCONF" > /dev/null 2>&1; then
+	[[ -z "$BASE_KEY" ]] && BASE_KEY=/org/gnome/terminal/legacy/profiles:
+
+	if [[ -n "`$DCONF list $BASE_KEY/`" ]]; then
+		if which "$UUIDGEN" > /dev/null 2>&1; then
+			PROFILE_SLUG=`uuidgen`
+		fi
+
+    if [[ -n "`$DCONF read $BASE_KEY/default`" ]]; then
+      DEFAULT_SLUG=`$DCONF read $BASE_KEY/default | tr -d \'`
+    else
+      DEFAULT_SLUG=`$DCONF list $BASE_KEY/ | grep '^:' | head -n1 | tr -d :/`
+    fi
+
+		DEFAULT_KEY="$BASE_KEY/:$DEFAULT_SLUG"
+		PROFILE_KEY="$BASE_KEY/:$PROFILE_SLUG"
+
+		# copy existing settings from default profile
+		$DCONF dump "$DEFAULT_KEY/" | $DCONF load "$PROFILE_KEY/"
+
+		# add new copy to list of profiles
+    dlist_append $BASE_KEY/list "$PROFILE_SLUG"
+
+		# update profile values with theme options
+		dset visible-name "'$PROFILE_NAME'"
+        dset palette "['#002b36', '#dc322f', '#859900', '#b58900', '#268bd2', '#6c71c4', '#2aa198', '#93a1a1', '#657b83', '#dc322f', '#859900', '#b58900', '#268bd2', '#6c71c4', '#2aa198', '#fdf6e3']"
+		dset background-color "'#002b36'"
+		dset foreground-color "'#93a1a1'"
+		dset bold-color "'#93a1a1'"
+		dset bold-color-same-as-fg "true"
+		dset use-theme-colors "false"
+		dset use-theme-background "false"
+
+		exit 0
+	fi
+fi
+
+# Fallback for Gnome 2 and early Gnome 3
 [[ -z "$GCONFTOOL" ]] && GCONFTOOL=gconftool
 [[ -z "$BASE_KEY" ]] && BASE_KEY=/apps/gnome-terminal/profiles
 
@@ -37,10 +105,10 @@ glist_append() {
 glist_append string /apps/gnome-terminal/global/profile_list "$PROFILE_SLUG"
 
 gset string visible_name "$PROFILE_NAME"
-gset string palette "#000022bb3366:#007733664422:#558866ee7755:#665577bb8833:#883399449966:#9933aa11aa11:#eeeeee88dd55:#ffddff66ee33:#ddcc332222ff:#ccbb44bb1166:#bb5588990000:#885599990000:#22aaaa119988:#226688bbdd22:#66cc7711cc44:#dd3333668822"
-gset string background_color "#000022bb3366"
-gset string foreground_color "#9933aa11aa11"
-gset string bold_color "#9933aa11aa11"
+gset string palette "#002b36:#dc322f:#859900:#b58900:#268bd2:#6c71c4:#2aa198:#93a1a1:#657b83:#dc322f:#859900:#b58900:#268bd2:#6c71c4:#2aa198:#fdf6e3"
+gset string background_color "#002b36"
+gset string foreground_color "#93a1a1"
+gset string bold_color "#93a1a1"
 gset bool   bold_color_same_as_fg "true"
 gset bool   use_theme_colors "false"
 gset bool   use_theme_background "false"
