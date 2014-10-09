@@ -2,8 +2,8 @@
 # Base16 Bright - Gnome Terminal color scheme install script
 # Chris Kempson (http://chriskempson.com)
 
-[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="Base 16 Bright Dark"
-[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="base-16-bright-dark"
+[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="Base 16 Bright Light"
+[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="base-16-bright-light"
 [[ -z "$DCONF" ]] && DCONF=dconf
 [[ -z "$UUIDGEN" ]] && UUIDGEN=uuidgen
 
@@ -51,7 +51,7 @@ if which "$DCONF" > /dev/null 2>&1; then
         DEFAULT_KEY="$BASE_KEY_NEW/:$DEFAULT_SLUG"
         PROFILE_KEY="$BASE_KEY_NEW/:$PROFILE_SLUG"
 
-        # copy existing settings from default profile
+         # copy existing settings from default profile
         $DCONF dump "$DEFAULT_KEY/" | $DCONF load "$PROFILE_KEY/"
 
         # add new copy to list of profiles
@@ -59,10 +59,11 @@ if which "$DCONF" > /dev/null 2>&1; then
 
         # update profile values with theme options
         dset visible-name "'$PROFILE_NAME'"
-        dset palette "['#000000', '#fb0120', '#a1c659', '#fda331', '#6fb3d2', '#d381c3', '#76c7b7', '#e0e0e0', '#b0b0b0', '#fb0120', '#a1c659', '#fda331', '#6fb3d2', '#d381c3', '#76c7b7', '#ffffff']"
-        dset background-color "'#000000'"
-        dset foreground-color "'#e0e0e0'"
-        dset bold-color "'#e0e0e0'"
+        dset palette "'#000000:#fb0120:#a1c659:#fda331:#6fb3d2:#d381c3:#76c7b7:#e0e0e0:#b0b0b0:#fb0120:#a1c659:#fda331:#6fb3d2:#d381c3:#76c7b7:#ffffff'"
+        dset palette "'#ffffff:#fb0120:#a1c659:#fda331:#6fb3d2:#d381c3:#76c7b7:#e0e0e0:#b0b0b0:#fb0120:#a1c659:#fda331:#6fb3d2:#d381c3:#76c7b7:#000000'"
+        dset background-color "'#ffffff'"
+        dset foreground-color "'#505050'"
+        dset bold-color "'#505050'"
         dset bold-color-same-as-fg "true"
         dset use-theme-colors "false"
         dset use-theme-background "false"
@@ -109,10 +110,10 @@ glist_append() {
 glist_append string /apps/gnome-terminal/global/profile_list "$PROFILE_SLUG"
 
 gset string visible_name "$PROFILE_NAME"
-gset string palette "#000000:#fb0120:#a1c659:#fda331:#6fb3d2:#d381c3:#76c7b7:#e0e0e0:#b0b0b0:#fb0120:#a1c659:#fda331:#6fb3d2:#d381c3:#76c7b7:#ffffff"
-gset string background_color "#000000"
-gset string foreground_color "#e0e0e0"
-gset string bold_color "#e0e0e0"
+gset string palette "#ffffff:#fb0120:#a1c659:#fda331:#6fb3d2:#d381c3:#76c7b7:#e0e0e0:#b0b0b0:#fb0120:#a1c659:#fda331:#6fb3d2:#d381c3:#76c7b7:#000000"
+gset string background_color "#ffffff"
+gset string foreground_color "#505050"
+gset string bold_color "#505050"
 gset bool   bold_color_same_as_fg "true"
 gset bool   use_theme_colors "false"
 gset bool   use_theme_background "false"
