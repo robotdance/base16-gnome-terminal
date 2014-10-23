@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Base16 Default - Gnome Terminal color scheme install script
-# Chris Kempson (http://chriskempson.com)
+# Base16 harmonic16 - Gnome Terminal color scheme install script
+# Jannik Siebert (https://github.com/janniks)
 
-[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="Base 16 Default Light"
-[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="base-16-default-light"
+[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="Base 16 harmonic16 Light"
+[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="base-16-harmonic16-light"
 [[ -z "$DCONF" ]] && DCONF=dconf
 [[ -z "$UUIDGEN" ]] && UUIDGEN=uuidgen
 
@@ -59,11 +59,11 @@ if which "$DCONF" > /dev/null 2>&1; then
 
         # update profile values with theme options
         dset visible-name "'$PROFILE_NAME'"
-        dset palette "'#181818:#ab4642:#a1b56c:#f7ca88:#7cafc2:#ba8baf:#86c1b9:#d8d8d8:#585858:#ab4642:#a1b56c:#f7ca88:#7cafc2:#ba8baf:#86c1b9:#f8f8f8'"
-        dset palette "'#f8f8f8:#ab4642:#a1b56c:#f7ca88:#7cafc2:#ba8baf:#86c1b9:#d8d8d8:#585858:#ab4642:#a1b56c:#f7ca88:#7cafc2:#ba8baf:#86c1b9:#181818'"
-        dset background-color "'#f8f8f8'"
-        dset foreground-color "'#383838'"
-        dset bold-color "'#383838'"
+        dset palette "'#0b1c2c:#bf8b56:#56bf8b:#8bbf56:#8b56bf:#bf568b:#568bbf:#cbd6e2:#627e99:#bf8b56:#56bf8b:#8bbf56:#8b56bf:#bf568b:#568bbf:#f7f9fb'"
+        dset palette "'#f7f9fb:#bf8b56:#56bf8b:#8bbf56:#8b56bf:#bf568b:#568bbf:#cbd6e2:#627e99:#bf8b56:#56bf8b:#8bbf56:#8b56bf:#bf568b:#568bbf:#0b1c2c'"
+        dset background-color "'#f7f9fb'"
+        dset foreground-color "'#405c79'"
+        dset bold-color "'#405c79'"
         dset bold-color-same-as-fg "true"
         dset use-theme-colors "false"
         dset use-theme-background "false"
@@ -110,10 +110,10 @@ glist_append() {
 glist_append string /apps/gnome-terminal/global/profile_list "$PROFILE_SLUG"
 
 gset string visible_name "$PROFILE_NAME"
-gset string palette "#f8f8f8:#ab4642:#a1b56c:#f7ca88:#7cafc2:#ba8baf:#86c1b9:#d8d8d8:#585858:#ab4642:#a1b56c:#f7ca88:#7cafc2:#ba8baf:#86c1b9:#181818"
-gset string background_color "#f8f8f8"
-gset string foreground_color "#383838"
-gset string bold_color "#383838"
+gset string palette "#f7f9fb:#bf8b56:#56bf8b:#8bbf56:#8b56bf:#bf568b:#568bbf:#cbd6e2:#627e99:#bf8b56:#56bf8b:#8bbf56:#8b56bf:#bf568b:#568bbf:#0b1c2c"
+gset string background_color "#f7f9fb"
+gset string foreground_color "#405c79"
+gset string bold_color "#405c79"
 gset bool   bold_color_same_as_fg "true"
 gset bool   use_theme_colors "false"
 gset bool   use_theme_background "false"

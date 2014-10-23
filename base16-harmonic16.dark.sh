@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Base16 Default - Gnome Terminal color scheme install script
-# Chris Kempson (http://chriskempson.com)
+# Base16 harmonic16 - Gnome Terminal color scheme install script
+# Jannik Siebert (https://github.com/janniks)
 
-[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="Base 16 Default Light"
-[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="base-16-default-light"
+[[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="Base 16 harmonic16 Dark"
+[[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="base-16-harmonic16-dark"
 [[ -z "$DCONF" ]] && DCONF=dconf
 [[ -z "$UUIDGEN" ]] && UUIDGEN=uuidgen
 
@@ -51,7 +51,7 @@ if which "$DCONF" > /dev/null 2>&1; then
         DEFAULT_KEY="$BASE_KEY_NEW/:$DEFAULT_SLUG"
         PROFILE_KEY="$BASE_KEY_NEW/:$PROFILE_SLUG"
 
-         # copy existing settings from default profile
+        # copy existing settings from default profile
         $DCONF dump "$DEFAULT_KEY/" | $DCONF load "$PROFILE_KEY/"
 
         # add new copy to list of profiles
@@ -59,11 +59,10 @@ if which "$DCONF" > /dev/null 2>&1; then
 
         # update profile values with theme options
         dset visible-name "'$PROFILE_NAME'"
-        dset palette "'#181818:#ab4642:#a1b56c:#f7ca88:#7cafc2:#ba8baf:#86c1b9:#d8d8d8:#585858:#ab4642:#a1b56c:#f7ca88:#7cafc2:#ba8baf:#86c1b9:#f8f8f8'"
-        dset palette "'#f8f8f8:#ab4642:#a1b56c:#f7ca88:#7cafc2:#ba8baf:#86c1b9:#d8d8d8:#585858:#ab4642:#a1b56c:#f7ca88:#7cafc2:#ba8baf:#86c1b9:#181818'"
-        dset background-color "'#f8f8f8'"
-        dset foreground-color "'#383838'"
-        dset bold-color "'#383838'"
+        dset palette "['#0b1c2c', '#bf8b56', '#56bf8b', '#8bbf56', '#8b56bf', '#bf568b', '#568bbf', '#cbd6e2', '#627e99', '#bf8b56', '#56bf8b', '#8bbf56', '#8b56bf', '#bf568b', '#568bbf', '#f7f9fb']"
+        dset background-color "'#0b1c2c'"
+        dset foreground-color "'#cbd6e2'"
+        dset bold-color "'#cbd6e2'"
         dset bold-color-same-as-fg "true"
         dset use-theme-colors "false"
         dset use-theme-background "false"
@@ -110,10 +109,10 @@ glist_append() {
 glist_append string /apps/gnome-terminal/global/profile_list "$PROFILE_SLUG"
 
 gset string visible_name "$PROFILE_NAME"
-gset string palette "#f8f8f8:#ab4642:#a1b56c:#f7ca88:#7cafc2:#ba8baf:#86c1b9:#d8d8d8:#585858:#ab4642:#a1b56c:#f7ca88:#7cafc2:#ba8baf:#86c1b9:#181818"
-gset string background_color "#f8f8f8"
-gset string foreground_color "#383838"
-gset string bold_color "#383838"
+gset string palette "#0b1c2c:#bf8b56:#56bf8b:#8bbf56:#8b56bf:#bf568b:#568bbf:#cbd6e2:#627e99:#bf8b56:#56bf8b:#8bbf56:#8b56bf:#bf568b:#568bbf:#f7f9fb"
+gset string background_color "#0b1c2c"
+gset string foreground_color "#cbd6e2"
+gset string bold_color "#cbd6e2"
 gset bool   bold_color_same_as_fg "true"
 gset bool   use_theme_colors "false"
 gset bool   use_theme_background "false"
