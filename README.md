@@ -6,7 +6,7 @@ Base16 for Gnome Terminal is a collection of gnome terminal color profiles.
 
 Firstly, clone the repository:
 
-    git clone https://github.com/chriskempson/base16-gnome-terminal.git
+    git clone https://github.com/robotdance/base16-gnome-terminal.git
 
 ### Install one color profile
 
