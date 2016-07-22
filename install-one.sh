@@ -81,7 +81,7 @@ if which "$DCONF" > /dev/null 2>&1; then
         unset PROFILE_SLUG
         unset DCONF
         unset UUIDGEN
-        #exits0
+        exit 0
     fi
 fi
 
@@ -96,7 +96,7 @@ gset() {
     local key="$1"; shift
     local val="$1"; shift
 
-    "$GCONFTOOL" --set --type "$type" "$PROFILE_KEY$key" -- "$val"
+    "$GCONFTOOL" --set --type "$type" "$PROFILE_KEY/$key" -- "$val"
 }
 
 # Because gconftool doesn't have "append"
